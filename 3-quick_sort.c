@@ -6,60 +6,6 @@ void lomuto_sort(int *array, size_t size, int left, int right);
 void quick_sort(int *array, size_t size);
 
 /**
- * swap_ints - Swap two init in an array.
- * @a: The first int to swap.
- * @b: The second int to swap.
- */
-void swap_ints(int *a, int *b)
-{
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-/**
- * selection_sort - Sort an array of integers in ascending order
- *                  using the selection sort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
- *
- * Description: Prints the array after each swap.
- */
-void selection_sort(int *array, size_t size)
-{
-	int *min;
-	size_t j, k;
-
-	if (array == NULL || size < 2)
-		return;
-
-	for (j = 0; j < size - 1; j++)
-	{
-		min = array + j;
-		for (k = j + 1; k < size; k++)
-			min = (array[k] < *min) ? (array + k) : min;
-
-		if ((array + j) != min)
-		{
-			swap_ints(array + j, min);
-			print_array(array, size);
-		}
-	}
-}
-
-
-3-quick_sort.c
-
-#include "sort.h"
-
-void swap_ints(int *a, int *b);
-int lomuto_partition(int *array, size_t size, int left, int right);
-void lomuto_sort(int *array, size_t size, int left, int right);
-void quick_sort(int *array, size_t size);
-
-/**
  * swap_ints - Swap two integers in an array.
  * @a: The first integer to swap.
  * @b: The second integer to swap.
@@ -134,7 +80,7 @@ void lomuto_sort(int *array, size_t size, int left, int right)
 /**
  * quick_sort - Sort an array of int in ascending
  *              order using the quicksort algorithm.
- * @array: An array of int.
+ * @array: An array of ints.
  * @size: The size of the array.
  *
  * Description: Uses the Lomuto partition scheme. Prints
